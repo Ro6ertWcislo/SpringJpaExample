@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    Look at what we offer
+</head>
+<body>
+<h1>Product List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>UnitsPerStock</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.productName}"></td>
+        <td th:text="${product.unitsPerStock}"></td>
+        <td>
+            <a th:href="@{/order(id=${product.productID})}"><span>buy</span></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

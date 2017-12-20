@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+
+
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>UnitsPerStock</th>
+        <th> id</th>
+    </tr>
+    </thead>
+    <tbody>
+<tr th:each="prod : ${product}">
+    <td th:text="${prod.productName}"></td>
+    <td th:text="${prod.unitsPerStock}"></td>
+    <td th:text="${prod.productID}"></td>
+
+</tr>
+    </tbody>
+
+
+</table>
+
+<div>
+    <form th:method="POST" th:action="@{/buy}">
+        <div class="form-group">
+            <label>firstName:</label>
+            <input class="form-control" name="firstName">
+            <label>lastName:</label>
+            <input class="form-control" name="lastName">
+            <label>product id:</label>
+            <input class="form-control" name="id">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+</body>
+</html>
